@@ -7,7 +7,8 @@
 }
 
 :root {
-  --base-color: #222237;
+  --base-color: #222327;
+  --primary-color: #29fd53;
 }
 
 body {
@@ -49,7 +50,7 @@ body {
   transform: rotate(315deg);
 }
 
-.menu li {
+.menu .list {
   position: absolute;
   left: 10px;
   list-style-type: none;
@@ -61,12 +62,12 @@ body {
   z-index: 10;
 }
 
-.menu.active li {
+.menu.active .list {
   visibility: visible;
   opacity: 1;
 }
 
-.menu li a {
+.menu .list a {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -77,7 +78,71 @@ body {
   transform: rotate(calc(360deg / -8 * var(--i)));
 }
 
-.menu.active li.active {
-  background-color: #ccc;
+.menu.active .list.active {
+  transform: rotate(calc(360deg / 8 * var(--i))) translateX(12px);
+}
+
+.indicator {
+  position: absolute;
+  left: calc(50% + 2.5px);
+  width: 100px;
+  height: 1px;
+  background-color: transparent;
+  transition: all 0.5s ease;
+  transform-origin: -3px;
+  pointer-events: none;
+}
+
+.indicator::before {
+  content: '';
+  position: absolute;
+  top: -27.5px;
+  left: 72px;
+  width: 55px;
+  height: 55px;
+  background-color: var(--base-color);
+  box-shadow: 0 0 0 6px var(--primary-color);
   border-radius: 50%;
+  transition: all 0.5s ease;
+  opacity: 0;
+}
+
+.menu.active .indicator::before {
+  top: -27.5px;
+  left: -27.5px;
+  background-color: var(--primary-color);
+  box-shadow: 0 0 0 6px var(--base-color);
+  opacity: 1;
+}
+
+.menu .list:nth-child(2).active ~ .indicator {
+  transform: rotate(calc(45deg * 0)) translateX(-103px);
+}
+
+.menu .list:nth-child(3).active ~ .indicator {
+  transform: rotate(calc(45deg * 1)) translateX(-103px);
+}
+
+.menu .list:nth-child(4).active ~ .indicator {
+  transform: rotate(calc(45deg * 2)) translateX(-103px);
+}
+
+.menu .list:nth-child(5).active ~ .indicator {
+  transform: rotate(calc(45deg * 3)) translateX(-103px);
+}
+
+.menu .list:nth-child(6).active ~ .indicator {
+  transform: rotate(calc(45deg * 4)) translateX(-103px);
+}
+
+.menu .list:nth-child(7).active ~ .indicator {
+  transform: rotate(calc(45deg * 5)) translateX(-103px);
+}
+
+.menu .list:nth-child(8).active ~ .indicator {
+  transform: rotate(calc(45deg * 6)) translateX(-103px);
+}
+
+.menu .list:nth-child(9).active ~ .indicator {
+  transform: rotate(calc(45deg * 7)) translateX(-103px);
 }
