@@ -48,3 +48,36 @@ body {
   color: #fff;
   transform: rotate(315deg);
 }
+
+.menu li {
+  position: absolute;
+  left: 10px;
+  list-style-type: none;
+  transition: all 0.5s ease;
+  transform: rotate(calc(360deg / 8 * var(--i))) translateX(40px);
+  transform-origin: 140px;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 10;
+}
+
+.menu.active li {
+  visibility: visible;
+  opacity: 1;
+}
+
+.menu li a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 55px;
+  height: 55px;
+  font-size: 1.75rem;
+  color: var(--base-color);
+  transform: rotate(calc(360deg / -8 * var(--i)));
+}
+
+.menu.active li.active {
+  background-color: #ccc;
+  border-radius: 50%;
+}
