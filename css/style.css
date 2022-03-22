@@ -5,3 +5,46 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+:root {
+  --base-color: #222237;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--base-color);
+}
+
+.menu {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 300px;
+}
+
+.menu .toggle {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 75px;
+  height: 75px;
+  background-color: #fff;
+  border-radius: 50%;
+  font-size: 3rem;
+  color: var(--base-color);
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+
+.menu .toggle.active {
+  background-color: var(--base-color);
+  box-shadow: 0 0 0 60px #fff, 0 0 0 68px #fff;
+  color: #fff;
+  transform: rotate(315deg);
+}
